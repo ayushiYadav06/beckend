@@ -69,6 +69,7 @@ const getUserById = async (id) => {
 };
 
 const getUserByEmail = async (email) => {
+    console.log(email, "===email");
     return User.findOne({ where: { email } });
 };
 
