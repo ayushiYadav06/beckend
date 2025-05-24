@@ -69,7 +69,7 @@ const verifyOtp = catchAsync(async (req, res) => {
 console.log(user.otp, "===user.otp");
 
   // Check if OTP matches and if it's not expired
-  if (user.otp !== otp) {
+  if (user.otp.toString() !== otp) {
     return res.status(httpStatus.UNAUTHORIZED).send({ message: "Invalid or expired OTP" });
   }
 
