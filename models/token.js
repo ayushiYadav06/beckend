@@ -18,7 +18,15 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.STRING,
     type: DataTypes.STRING,
     expire_at: DataTypes.DATE,
-    black_listed: DataTypes.INTEGER
+    black_listed: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'createddat' // <-- map to actual column name
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      field: 'updateddat' // <-- map to actual column name
+    }
   }, {
     sequelize,
     modelName: 'token',
