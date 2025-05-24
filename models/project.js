@@ -189,11 +189,13 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
+        fielfield: 'createdat' 
         // defaultValue: DataTypes.fn('NOW'),
       },
       updatedAt: {
         type: DataTypes.DATE,
         allowNull: false,
+        field: 'updatedat' 
         // defaultValue: DataTypes.fn('NOW'),
       },
       // projectname: DataTypes.STRING,
