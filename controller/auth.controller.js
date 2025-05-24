@@ -14,14 +14,14 @@ function generateOTP() {
 const login = catchAsync(async (req, res) => {
   console.log(req.body, "===req.bodyyyyyyyyyyyyyyyy");
   const { email, password } = req.body;
-  // const user = await authService.loginUserWithEmailAndPassword(email, password);
+  const user = await authService.loginUserWithEmailAndPassword(email, password);
     console.log(user, "===req.tttttttttttttttttttttttttt");
 
-  // if (!user) {
-  //   return res.status(httpStatus.UNAUTHORIZED).send({
-  //     message: "Invalid credentials",
-  //   });
-  // }
+  if (!user) {
+    return res.status(httpStatus.UNAUTHORIZED).send({
+      message: "Invalid credentials",
+    });
+  }
 
   // Generate OTP
   const otp = generateOTP();
