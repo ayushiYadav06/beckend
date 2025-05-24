@@ -15,10 +15,13 @@ const userServices = require("../service/user.service");
  * @returns {Promise<User>}
  */
 const loginUserWithEmailAndPassword = async (email, password) => {
+    console.log(email, password, "===email and password in auth service");
     const user = await userService.getUserByEmail(email);
+    console.log(user, "===user in auth service");
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return null;
     }
+    console.log(user, "===user after password match in auth service");
     return user;
 };
 
