@@ -21,11 +21,11 @@ module.exports = (sequelize, DataTypes) => {
     black_listed: DataTypes.INTEGER,
     createdAt: {
       type: DataTypes.DATE,
-      field: 'createddat' // <-- map to actual column name
+      field: 'createdat' // <-- map to actual column name
     },
     updatedAt: {
       type: DataTypes.DATE,
-      field: 'updateddat' // <-- map to actual column name
+      field: 'updatedat' // <-- map to actual column name
     }
   }, {
     sequelize,
