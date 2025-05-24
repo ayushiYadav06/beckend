@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const moment = require('moment');
 const httpStatus = require('http-status');
 const userService = require('./user.service');
-const db = require("../models");
+const db = require("../model");
 const Token = db.token;
 const {tokenTypes} = require('../config/token');
 const ApiError = require('../utils/ApiError');
@@ -20,6 +20,7 @@ const generateToken = (userId, expires, type, secret = process.env.JWT_SECRET) =
 
 
 const saveToken = async (token, userId, expires, type, blacklisted = 0) => {
+    console.log(token, userId, expires, type, blacklisted, "===token, userId, expires, type, blacklisted in token service");
     const tokenDoc = await Token.create({
         token,
         user_id     : userId,
@@ -27,7 +28,7 @@ const saveToken = async (token, userId, expires, type, blacklisted = 0) => {
         type,
         black_listed: blacklisted,
     });
-
+    console.log(tokenDoc, "===tokenDoc in token service");
     return tokenDoc;
 };
 
